@@ -12,7 +12,7 @@ function Person(firstName, birthYear) {
 }
 
 const jonas = new Person("Jonas", 1991);
-console.log(jonas);
+// console.log(jonas);
 
 // when calling a function with the *new* keyword:
 // 1. New {} is created
@@ -22,10 +22,31 @@ console.log(jonas);
 
 const matilda = new Person("Matilda", 2017);
 const jack = new Person("Jack", 1975);
-console.log(matilda, jack);
+// console.log(matilda, jack);
 
 const jay = "jay";
-console.log(jonas instanceof Person);
+// console.log(jonas instanceof Person);
+
+// Prototypes
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+console.log(Person.prototype);
+
+jonas.calcAge();
+matilda.calcAge();
+jack.calcAge();
+
+// Person.prototype IS NOT the prototype of Person. it is essentailly the same prototype as the created objects (that will be created using the prototype of the constructor function). Think of the prototype keyword as saying (.prototypeOfLinkedObjects). refer to below:
+console.log(jonas.__proto__);
+console.log(jonas.__proto__ === Person.prototype); // true
+
+Person.prototype.species = "Homo Sapiens";
+console.log(jonas.species, matilda.species);
+
+console.log(jonas.hasOwnProperty("firstName"));
+console.log(jonas.hasOwnProperty("species"));
 
 // just some practice to get a refresher with objects and the "this" keyword:
 
