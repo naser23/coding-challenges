@@ -48,18 +48,9 @@ console.log(jonas.species, matilda.species);
 console.log(jonas.hasOwnProperty("firstName"));
 console.log(jonas.hasOwnProperty("species"));
 
-// just some practice to get a refresher with objects and the "this" keyword:
+// when an object is created with a constructor function or ES6 classes:
 
-// function createPerson(firstName, lastName, age) {
-//   let person = {
-//     name: firstName,
-//     name2: lastName,
-//     age: age,
-//     fullName: function () {
-//       return this.name + " " + this.name2;
-//     },
-//   };
-//   console.log(person.fullName());
-// }
-
-// createPerson("jonas", "schmedtman", 40);
+// 1. an empty object is created instantly ({}).
+// 2. (this) keyword in constructor function call is set to the new object. (this = {})
+// 3. new {} is linked to the constructor functions prototype.
+// 4. the new {} is always returned unless you explicitly stated otherwise.
