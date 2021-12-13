@@ -83,29 +83,65 @@ Person.prototype.calcAge = function () {
 
 // Coding Challenge #1
 
-function Car(make, speed) {
-  this.make = make;
-  this.speed = speed;
+// function Car(make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// }
+
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(this.speed);
+// };
+
+// Car.prototype.break = function () {
+//   this.speed -= 5;
+//   console.log(this.speed);
+// };
+// console.log(Car.prototype);
+
+// let bMW = new Car("BMW", 120);
+// let mercedes = new Car("Mercedes", 95);
+
+// bMW.accelerate();
+// mercedes.accelerate();
+
+// bMW.break();
+// mercedes.break();
+
+// console.log(bMW, mercedes);
+
+// CLASSES SECTION
+
+// class expression
+// const PersonCl = class {}
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
 }
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(this.speed);
-};
+const jessica = new PersonCl("Jessica", 1996);
+console.log(jessica);
+jessica.calcAge();
 
-Car.prototype.break = function () {
-  this.speed -= 5;
-  console.log(this.speed);
-};
-console.log(Car.prototype);
+console.log(jessica.__proto__ === PersonCl.prototype);
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+jessica.greet();
 
-let bMW = new Car("BMW", 120);
-let mercedes = new Car("Mercedes", 95);
-
-bMW.accelerate();
-mercedes.accelerate();
-
-bMW.break();
-mercedes.break();
-
-console.log(bMW, mercedes);
+// 1. classes are NOT Hoisted (cannot be used before declared)
+// 2. classes are first-class citizens (can be passed into and returned from other functions)
+// 3. classes are executed in strict mode
